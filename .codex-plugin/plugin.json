@@ -1,0 +1,35 @@
+{
+  "name": "cuebook",
+  "version": "0.1.0",
+  "description": "Model-routed skills that turn researched requirements into minimal, verified implementation across Claude Code and Codex.",
+  "author": {
+    "name": "Yuh",
+    "url": "https://github.com/LivingDeadDolls"
+  },
+  "homepage": "https://github.com/LivingDeadDolls/cuebook",
+  "repository": "https://github.com/LivingDeadDolls/cuebook",
+  "license": "MIT",
+  "keywords": [
+    "requirements",
+    "planning",
+    "implementation",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cuebook",
+    "shortDescription": "Research, define, then implement",
+    "longDescription": "Turn an issue or request into a researched plan, then execute that plan with minimal changes and verification.",
+    "developerName": "LivingDeadDolls",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/LivingDeadDolls/cuebook",
+    "defaultPrompt": [
+      "Write a researched implementation script",
+      "Perform the next saved implementation script"
+    ]
+  }
+}

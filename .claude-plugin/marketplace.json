@@ -1,0 +1,17 @@
+{
+  "name": "cuebook",
+  "owner": {
+    "name": "Yuh"
+  },
+  "description": "Cuebook skills for researched planning and minimal implementation.",
+  "plugins": [
+    {
+      "name": "cuebook",
+      "source": {
+        "source": "github",
+        "repo": "LivingDeadDolls/cuebook"
+      },
+      "description": "Turn researched requirements into minimal, verified implementation."
+    }
+  ]
+}
