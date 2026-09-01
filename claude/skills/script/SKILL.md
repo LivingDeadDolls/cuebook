@@ -30,14 +30,21 @@ Act as the Director. Produce requirements only; do not implement them.
    questions into one bounded brief; do not start agents by default in parallel.
 4. Reconcile its evidence with the repository. Never replace missing research
    with a guess.
-5. Ask the user only for a decision that research cannot answer: desired
-   behavior, scope, acceptance, authority, destructive action, or a material
-   security/privacy tradeoff. Use the question format below.
-6. Choose the smallest approach that meets the accepted requirement: reuse
+5. Map every unresolved user decision as a design tree whose branches record
+   prerequisite decisions. Facts are research tasks, not user questions. Only
+   include desired behavior, scope, acceptance, authority, destructive action,
+   or a material security/privacy tradeoff that research cannot determine.
+6. Work the tree in rounds. Ask the entire current frontier: every decision
+   whose factual and decision prerequisites are settled. Defer decisions that
+   depend on an answer still open in that round.
+7. After each answer round, recompute the frontier. When it is empty, summarize
+   the resulting contract and obtain the user's confirmation that it reflects
+   the shared understanding. Do not mark the plan ready before confirmation.
+8. Choose the smallest approach that meets the accepted requirement: reuse
    existing code, then standard library/native features, then installed
    dependencies. Add no speculative abstraction, compatibility layer,
    framework, configuration, dependency, or test suite.
-7. Create `plans/` if needed and save the contract. Use
+9. Create `plans/` if needed and save the contract. Use
    `plans/issue-<number>.md` for an issue and a short kebab-case slug otherwise.
 
 ## Plan format

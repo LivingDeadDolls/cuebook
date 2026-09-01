@@ -30,15 +30,22 @@ tests, or unrelated plans.
    unknowns. It must not edit files, ask the user, or choose product behavior.
 3. Reconcile the evidence with the repository. Never substitute a guess for
    missing research.
-4. Return `NEEDS_USER_DECISION` only when research cannot determine desired
-   behavior, scope, acceptance, authority, destructive action, or a material
-   security/privacy tradeoff. Use the question format below; resume after the
-   launcher relays the answer.
-5. Choose the smallest accepted approach: reuse existing code, then standard
+4. Map every unresolved user decision as a design tree whose branches record
+   prerequisite decisions. Facts are research tasks, not user questions. Only
+   include desired behavior, scope, acceptance, authority, destructive action,
+   or a material security/privacy tradeoff that research cannot determine.
+5. Work the tree in rounds. Return `NEEDS_USER_DECISION` with the entire current
+   frontier: every decision whose factual and decision prerequisites are
+   settled. Defer decisions that depend on an answer still open in that round.
+   Resume after the launcher relays the answers, then recompute the frontier.
+6. Repeat until the frontier is empty, summarize the resulting contract, and
+   obtain the user's confirmation that it reflects the shared understanding.
+   Do not mark the plan ready before that confirmation.
+7. Choose the smallest accepted approach: reuse existing code, then standard
    library/native features, then installed dependencies. Add no speculative
    abstraction, compatibility layer, framework, configuration, dependency, or
    test suite.
-6. Save `plans/issue-<number>.md` for an issue or a short kebab-case slug
+8. Save `plans/issue-<number>.md` for an issue or a short kebab-case slug
    otherwise. Create `plans/` if needed.
 
 Use this format:

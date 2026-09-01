@@ -1,6 +1,6 @@
 {
   "name": "cuebook",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Model-routed skills that turn researched requirements into minimal, verified implementation across Claude Code and Codex.",
   "author": {
     "name": "Yuh",
