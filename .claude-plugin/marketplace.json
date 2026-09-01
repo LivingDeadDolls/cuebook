@@ -8,8 +8,8 @@
     {
       "name": "cuebook",
       "source": {
-        "source": "github",
-        "repo": "LivingDeadDolls/cuebook"
+        "source": "url",
+        "url": "https://github.com/LivingDeadDolls/cuebook.git"
       },
       "description": "Turn researched requirements into minimal, verified implementation."
     }
