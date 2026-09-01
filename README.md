@@ -7,12 +7,14 @@ Claude CodeとCodexの両方に対応し、役割ごとに指定したモデル�
 
 ## クイックインストール
 
-利用するランタイムごとにCuebookをインストールしてください。  
-以下のコマンドはターミナルで実行し、ユーザー環境へプラグインを導入します。
+利用するランタイムごとにCuebookをインストールしてください。    
+以下を指示することで導入できます。
 
 ```
-https://github.com/LivingDeadDolls/cuebook をセットアップして
+https://github.com/LivingDeadDolls/cuebook を現環境のプラグインとして導入し、READMEに従ってインストールと導入確認を実施して。
 ```
+
+または、以下のコマンドをターミナルで実行し、ユーザー環境へプラグインを導入します。
 
 ### Claude Code
 
