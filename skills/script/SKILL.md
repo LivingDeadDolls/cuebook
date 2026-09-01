@@ -68,11 +68,11 @@ For every required decision, return one numbered question with three to five
 choices on separate lines. Always mark and explain the recommendation:
 
 ```text
-Q1. <relevant premise> → <question>
-(A). <choice>
-(B). <choice> (推奨)
-(C). <choice>
-推奨理由: (B). <why it best fits the evidence and tradeoffs>
+❓Q1 <relevant premise> → <question>
+(A) <choice>
+(B) <choice> (推奨)
+(C) <choice>
+推奨理由: (B) <why it best fits the evidence and tradeoffs>
 ```
 
 Return `READY`, the saved path, and the decisions fixed by the contract. The

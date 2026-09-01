@@ -69,11 +69,11 @@ Ask one decision per numbered question. Use three to five choices, each on its
 own line, and always mark and explain the recommendation:
 
 ```text
-Q1. <relevant premise> → <question>
-(A). <choice>
-(B). <choice> (推奨)
-(C). <choice>
-推奨理由: (B). <why it best fits the evidence and tradeoffs>
+❓Q1 <relevant premise> → <question>
+(A) <choice>
+(B) <choice> (推奨)
+(C) <choice>
+推奨理由: (B) <why it best fits the evidence and tradeoffs>
 ```
 
 Finish by reporting the saved path and the decisions fixed by the contract.

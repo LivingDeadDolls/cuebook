@@ -60,11 +60,11 @@ five choices on separate lines, always marking and explaining the
 recommendation:
 
 ```text
-Q1. <relevant premise> → <question>
-(A). <choice>
-(B). <choice> (推奨)
-(C). <choice>
-推奨理由: (B). <why it best fits the evidence and tradeoffs>
+❓Q1 <relevant premise> → <question>
+(A) <choice>
+(B) <choice> (推奨)
+(C) <choice>
+推奨理由: (B) <why it best fits the evidence and tradeoffs>
 ```
 
 Resume in the same Director thread after the launcher relays the answer. Do not

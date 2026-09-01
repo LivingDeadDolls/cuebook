@@ -1,5 +1,7 @@
 # Cuebook
 
+[English](README.md) | [日本語](README.ja.md)
+
 Cuebook separates software work into two acts: a researched specification and
 its minimal, verified implementation. It ships equivalent skills for Claude
 Code and Codex while routing each role to an intentional model and effort.
