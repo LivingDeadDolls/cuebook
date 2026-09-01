@@ -14,8 +14,11 @@ stop merely because implementation was delegated.
 
 ## Start
 
-1. Resolve `$ARGUMENTS` to a plan. If omitted, use the only ready plan under
-   `plans/`; if there is not exactly one, ask which plan to perform.
+1. Resolve `$ARGUMENTS` to a plan. Accept a full path, issue number, or slug;
+   automatically try `plans/issue-<number>.md` and `plans/<slug>.md`, so the
+   user never needs to type the `plans/` prefix. If omitted, scan `plans/` and
+   select the most recently modified plan whose status is `ready`. Ask only
+   when no ready plan exists.
 2. Read the entire plan, project instructions, relevant code, current git state,
    and related existing tests. Preserve unrelated changes.
 3. Do not begin when the plan is missing, not ready, has open questions, or
@@ -24,12 +27,27 @@ stop merely because implementation was delegated.
 4. Restate the goal, non-goals, acceptance criteria, and areas that will remain
    unchanged. Form the smallest execution brief.
 
+## Isolate
+
+Before editing a Git repository, inspect existing worktrees, branches, and
+project conventions. Reuse the current checkout only when it is already a
+dedicated branch or worktree for this plan. Otherwise create a dedicated branch
+and sibling worktree; follow project naming conventions, falling back to branch
+`cuebook/<plan-slug>` and worktree `<repo>-cuebook-<plan-slug>`.
+
+Create from the plan's stated base, or the current `HEAD` when none is stated.
+If the selected plan is untracked, copy only that plan to the same relative path
+in the new worktree. Never move unrelated changes. If overlapping uncommitted
+changes are required, ask the user using the question format below. Report the
+chosen branch and worktree, and direct every Performer action there. Keep the
+worktree after completion unless the user explicitly requests cleanup.
+
 ## Direct
 
 Delegate the bounded implementation brief to `cuebook:performer`. Use one
 Performer at a time. Require it to read the plan and project instructions,
-modify only relevant files, preserve unrelated changes, and run relevant
-existing checks.
+work only in the dedicated worktree and branch, modify only relevant files,
+preserve unrelated changes, and run relevant existing checks.
 
 Apply these rules throughout:
 

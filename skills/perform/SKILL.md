@@ -20,9 +20,11 @@ Codex multi-agent support; do not silently run the work on another model.
 Own a saved plan through verified completion. Do not stop merely because work
 was delegated.
 
-1. Resolve the request to a plan. If omitted, use the only ready plan under
-   `plans/`; if there is not exactly one, return `NEEDS_USER_DECISION` asking
-   which plan to perform.
+1. Resolve the request to a plan. Accept a full path, issue number, or slug;
+   automatically try `plans/issue-<number>.md` and `plans/<slug>.md`, so the
+   user never needs to type the `plans/` prefix. If omitted, scan `plans/` and
+   select the most recently modified plan whose status is `ready`. Return
+   `NEEDS_USER_DECISION` only when no ready plan exists.
 2. Read the entire plan, project instructions, relevant code, current git state,
    and related existing tests. Preserve unrelated changes.
 3. Do not implement a missing or unready plan, one with open questions, or one
@@ -30,10 +32,18 @@ was delegated.
    missing contract decision.
 4. Restate the goal, non-goals, acceptance criteria, and unchanged areas. Form
    the smallest execution brief.
-5. Delegate that brief to one Performer using model `gpt-5.6-luna` and reasoning
+5. Before editing a Git repository, inspect worktrees, branches, and project
+   conventions. Reuse the current checkout only when it is already dedicated to
+   this plan. Otherwise create a dedicated branch and sibling worktree, using
+   project naming or falling back to branch `cuebook/<plan-slug>` and worktree
+   `<repo>-cuebook-<plan-slug>`. Start from the plan's base or current `HEAD`.
+   Copy only an untracked selected plan into the new worktree; never move
+   unrelated changes. Ask only when required overlapping changes are
+   uncommitted. Keep the worktree after completion unless cleanup is requested.
+6. Delegate that brief to one Performer using model `gpt-5.6-luna` and reasoning
    effort `xhigh`. Require it to read the plan and project instructions, edit
-   only relevant files, preserve unrelated changes, and run relevant existing
-   checks.
+   only relevant files in the selected worktree and branch, preserve unrelated
+   changes, and run relevant existing checks. Report the worktree and branch.
 
 Apply these rules:
 

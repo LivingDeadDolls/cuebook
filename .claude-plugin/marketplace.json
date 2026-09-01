@@ -7,10 +7,7 @@
   "plugins": [
     {
       "name": "cuebook",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/LivingDeadDolls/cuebook.git"
-      },
+      "source": "./",
       "description": "Turn researched requirements into minimal, verified implementation."
     }
   ]
