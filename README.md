@@ -4,17 +4,87 @@ Cuebook separates software work into two acts: a researched specification and
 its minimal, verified implementation. It ships equivalent skills for Claude
 Code and Codex while routing each role to an intentional model and effort.
 
-## Commands
+## Quick install
+
+Install Cuebook for each runtime you use. These commands run in your terminal
+and install the plugin for your user account.
+
+### Claude Code
+
+Requires the `claude` CLI to be installed and signed in.
+
+```sh
+claude plugin marketplace add LivingDeadDolls/cuebook && \
+  claude plugin install cuebook@cuebook --scope user
+```
+
+Verify the installation:
+
+```sh
+claude plugin list
+```
+
+### Codex
+
+Requires the `codex` CLI to be installed and signed in.
+
+```sh
+codex plugin marketplace add LivingDeadDolls/cuebook --ref main && \
+  codex plugin add cuebook@cuebook
+```
+
+Verify the installation:
+
+```sh
+codex plugin list
+```
+
+## Use
+
+Open Claude Code or Codex in the project you want to work on, then enter one of
+these commands in its chat:
 
 | Act | Claude Code | Codex | Result |
 | --- | --- | --- | --- |
-| Script | `/cuebook:script` | `$cuebook:script` | Saves a contract to `plans/<issue-or-slug>.md` |
-| Perform | `/cuebook:perform` | `$cuebook:perform` | Implements a saved contract through acceptance |
+| Script | `/cuebook:script #123` | `$cuebook:script #123` | Saves `plans/issue-123.md` |
+| Perform | `/cuebook:perform plans/issue-123.md` | `$cuebook:perform plans/issue-123.md` | Implements and verifies the plan |
 
-Pass an issue, request, or plan path with the command. `script` researches
+You can pass a written request instead of an issue number. `script` researches
 facts before asking questions and never edits product code. `perform` owns the
-goal through completion; it pauses only for decisions that require user
-authority.
+goal through completion and pauses only for decisions requiring user authority.
+
+## Update
+
+### Claude Code
+
+```sh
+claude plugin marketplace update cuebook && \
+  claude plugin update cuebook@cuebook --scope user
+```
+
+### Codex
+
+```sh
+codex plugin marketplace upgrade cuebook && \
+  codex plugin remove cuebook@cuebook && \
+  codex plugin add cuebook@cuebook
+```
+
+## Uninstall
+
+### Claude Code
+
+```sh
+claude plugin uninstall cuebook@cuebook --scope user
+claude plugin marketplace remove cuebook
+```
+
+### Codex
+
+```sh
+codex plugin remove cuebook@cuebook
+codex plugin marketplace remove cuebook
+```
 
 ## Model routing
 
@@ -31,24 +101,6 @@ authority.
 
 Model aliases must be available in the host. Claude Code applies its routing
 from skill and agent frontmatter. Codex applies it when each skill delegates.
-
-## Install
-
-### Claude Code
-
-Add this repository as a plugin marketplace, then install `cuebook`:
-
-```text
-/plugin marketplace add LivingDeadDolls/cuebook
-/plugin install cuebook@cuebook
-```
-
-### Codex
-
-```sh
-codex plugin marketplace add LivingDeadDolls/cuebook --ref main
-codex plugin add cuebook@cuebook
-```
 
 ## Contract
 
